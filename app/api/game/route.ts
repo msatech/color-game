@@ -4,7 +4,7 @@ import prisma from "@/lib/prisma";
 
 export type Color = "GREEN" | "RED" | "VIOLET";
 
-const ROUND_DURATION_SECONDS = 20; // 3 minutes
+const ROUND_DURATION_SECONDS = 180; // 3 minutes
 
 interface RoundState {
   id: bigint;        // BigInt storage
