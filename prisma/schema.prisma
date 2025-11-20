@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id        Int        @id @default(autoincrement())
+  username  String     @unique
+  password  String
+  balance   Int        @default(0)
+  recharges Recharge[]
+  bets      Bet[]
+}
+
+model Bet {
+  id         Int      @id @default(autoincrement())
+  user       User?    @relation(fields: [userId], references: [id])
+  userId     Int?
+  roundId    BigInt
+  color      String
+  number     Int?
+  amount     Int
+  multiplier Int?
+  isWinner   Boolean?
+  createdAt  DateTime @default(now())
+}
+
+model Recharge {
+  id        Int            @id @default(autoincrement())
+  user      User           @relation(fields: [userId], references: [id])
+  userId    Int
+  trn       String
+  amount    Int
+  status    RechargeStatus @default(PENDING)
+  createdAt DateTime       @default(now())
+}
+
+enum RechargeStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
