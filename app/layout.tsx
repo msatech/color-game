@@ -4,7 +4,7 @@ import { Toaster } from "@/components/ui/sonner"
 
 export const metadata: Metadata = {
   title: "Color Game",
-  description: "Color prediction game demo",
+  description: "Color prediction",
 };
 
 export default function RootLayout({

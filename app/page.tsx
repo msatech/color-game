@@ -366,7 +366,7 @@ export default function HomePage() {
         <div className="flex items-center justify-between">
           <div className="flex flex-col">
             <span className="text-[11px] uppercase tracking-[0.2em] text-slate-400">
-              Lion Ka Baby 
+              Color Game
             </span>
             <h1 className="text-lg font-semibold text-slate-50">
               3-Minute Color Game
